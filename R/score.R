@@ -1,4 +1,5 @@
 library(magrittr)
+library(glmnet)
 
 key = Sys.getenv('STORAGE_ACCOUNT_KEY')
 container_url = 'https://asnrocksstorage.blob.core.windows.net/'
@@ -25,7 +26,7 @@ get_model <- function (model_path, container_url, key) {
     AzureStor::blob_container("data")
 
   # Sort all models
-  models_list <- list_blobs(container_client, model_path)
+  models_list <- AzureStor::list_blobs(container_client, model_path)
   last_model_name <- max(models_list$name)
 
   # Download blob to local disk
@@ -54,9 +55,6 @@ get_score <- function(params_dict, model_package) {
   workflows:::predict.workflow(model_package, new_data = as.data.frame(params_dict))
 }
 
-# Predict score
-score = model.predict(pd.DataFrame.from_dict({1:params_dict},
-                                             orient='index'))
 
 input_dict = list(
   'cylinders' = 8,
@@ -69,5 +67,6 @@ input_dict = list(
   'name' = NA
 )
 
-model = get_model(model_path, container_url, key)
+model = get_model(model_path = "models", container_url, key)
 score = get_score(input_dict, model$model)
+score

@@ -31,7 +31,7 @@ read_input_data <- function(
 
   # Download blob to local disk
   output_path = file.path(data_path, data_file)
-  storage_download(
+  AzureStor::storage_download(
     container = container_client,
     src = data_file,
     dest = output_path,
@@ -77,8 +77,8 @@ save_model <- function(
     AzureStor::blob_container("data")
 
   # First checks if a file with same names already exists
-  if(!blob_exists(container_client, file_path))
-    storage_upload(container_client,  file_path, file_path)
+  if(!AzureStor::blob_exists(container_client, file_path))
+    AzureStor::storage_upload(container_client,  file_path, file_path)
 
   print('Upload completed!')
 }
