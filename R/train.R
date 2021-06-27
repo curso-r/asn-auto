@@ -119,6 +119,7 @@ run_train <- function(
 
   # dataprep
   auto_recipe <- recipes::recipe(mpg ~ ., auto_train) %>%
+    recipes::step_rm(name) %>%
     recipes::step_mutate(
       cylinder_displacement = cylinders*displacement,
       specific_torque = horsepower/cylinder_displacement,
@@ -181,4 +182,4 @@ microbenchmark::microbenchmark({
     key = Sys.getenv('STORAGE_ACCOUNT_KEY'),
     container_url = 'https://asnrocksstorage.blob.core.windows.net/'
   )
-}, times = 5)
+}, times = 2)
