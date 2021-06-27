@@ -170,6 +170,8 @@ run_train <- function(
   save_model(auto_fit, model_path, model_name, container_url, key)
 }
 
+
+# benchmarking
 microbenchmark::microbenchmark({
   run_train(
     data_path = 'data',
@@ -179,4 +181,4 @@ microbenchmark::microbenchmark({
     key = Sys.getenv('STORAGE_ACCOUNT_KEY'),
     container_url = 'https://asnrocksstorage.blob.core.windows.net/'
   )
-})
+}, times = 5)
