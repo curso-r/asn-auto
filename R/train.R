@@ -1,8 +1,5 @@
 library(magrittr)
 
-key = Sys.getenv('STORAGE_ACCOUNT_KEY')
-container_url = 'https://asnrocksstorage.blob.core.windows.net/'
-
 #' Read Input Data
 #'
 #' Downloads specified data file from specified container,
@@ -19,8 +16,8 @@ container_url = 'https://asnrocksstorage.blob.core.windows.net/'
 read_input_data <- function(
   data_path = 'data',
   data_file = 'auto.xlsx',
-  container_url,
-  key
+  container_url = 'https://asnrocksstorage.blob.core.windows.net/',
+  key = Sys.getenv('STORAGE_ACCOUNT_KEY')
 ) {
   # Instanciated a container client
   container_client = AzureStor::blob_endpoint(
@@ -61,8 +58,8 @@ save_model <- function(
   model,
   model_path = 'models/',
   model_name = glue::glue('auto_model_{strftime(start_time, "%Y-%m-%d--%H-%M-%S")}.rds'),
-  container_url,
-  key
+  container_url = 'https://asnrocksstorage.blob.core.windows.net/',
+  key = Sys.getenv('STORAGE_ACCOUNT_KEY')
 ) {
   # Save model to disk
   if(!dir.exists(model_path)) dir.create(model_path)
@@ -172,14 +169,3 @@ run_train <- function(
 }
 
 
-# benchmarking
-microbenchmark::microbenchmark({
-  run_train(
-    data_path = 'data',
-    data_file = 'auto.xlsx',
-    model_path = 'models/',
-    model_name = glue::glue('auto_model_{strftime(Sys.time(), "%Y-%m-%d--%H-%M-%S")}.rds'),
-    key = Sys.getenv('STORAGE_ACCOUNT_KEY'),
-    container_url = 'https://asnrocksstorage.blob.core.windows.net/'
-  )
-}, times = 2)

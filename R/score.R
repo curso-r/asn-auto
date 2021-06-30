@@ -1,9 +1,3 @@
-library(magrittr)
-library(glmnet)
-
-key = Sys.getenv('STORAGE_ACCOUNT_KEY')
-container_url = 'https://asnrocksstorage.blob.core.windows.net/'
-
 #' Get Model
 #'
 #' List all models and downloads last one, assumes order by name import
@@ -55,18 +49,3 @@ get_score <- function(params_dict, model_package) {
   workflows:::predict.workflow(model_package, new_data = as.data.frame(params_dict))
 }
 
-
-input_dict = list(
-  'cylinders' = 8,
-  'displacement' = 320,
-  'horsepower' = 150,
-  'weight' = 3449,
-  'acceleration' = 11.0,
-  'year' = 70,
-  'origin' = 1,
-  'name' = NA
-)
-
-model = get_model(model_path = "models", container_url, key)
-score = get_score(input_dict, model$model)
-score
