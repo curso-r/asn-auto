@@ -1,4 +1,5 @@
 library(magrittr)
+teste <- "OK!"
 
 #' Read Input Data
 #'
