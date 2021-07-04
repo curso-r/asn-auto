@@ -19,19 +19,36 @@ scora_um <- function(
   weight,
   acceleration,
   year,
-  origin
+  origin,
+  force_model_update = FALSE
 ) {
-  if(input_dict == "") return(400)
+  browser()
 
-  model = get_model(model_path = "models",
-                    container_url = 'https://asnrocksstorage.blob.core.windows.net/',
-                    key = Sys.getenv('STORAGE_ACCOUNT_KEY'))
+  model_path <- "models"
+  force_model_update <- as.logical(force_model_update)
+  # checa se já tem modelo para utilizar
+  if(length(list.files(model_path)) > 0 & !force_model_update) {
+    model = get_existing_model(model_path)
+  } else {
+    model = update_model(model_path = model_path,
+                      container_url = 'https://asnrocksstorage.blob.core.windows.net/',
+                      key = Sys.getenv('STORAGE_ACCOUNT_KEY'))
+  }
 
-  input_dict <- as.data.frame(input_dict)
+  input_dict = list(
+    cylinders = cylinders,
+    displacement = displacement,
+    horsepower = horsepower,
+    weight = weight,
+    acceleration = acceleration,
+    year = year,
+    origin = origin
+  )
+
   input_dict$name <- ""
 
   score = get_score(input_dict, model$model)
-  score
+  score$.pred
 }
 
 

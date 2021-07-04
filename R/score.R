@@ -1,4 +1,24 @@
-#' Get Model
+#' Get Existing Model
+#'
+#' List all models and downloads last one, assumes order by name import
+#' dowloaded model
+#'
+#' @param model_path
+#'
+#' @return
+#' @export
+#'
+#' @examples
+get_existing_model <- function (model_path) {
+  model_name <- list.files(model_path, full.names = TRUE)
+  model_name <- model_name[length(model_name)]
+  list(
+    model = readRDS(model_name),
+    last_model_name = model_name
+  )
+}
+
+#' Update Model
 #'
 #' List all models and downloads last one, assumes order by name import
 #' dowloaded model
@@ -11,7 +31,7 @@
 #' @export
 #'
 #' @examples
-get_model <- function (model_path, container_url, key) {
+update_model <- function (model_path, container_url, key) {
   # Instanciated a container client
   container_client = AzureStor::blob_endpoint(
     endpoint = container_url,

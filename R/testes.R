@@ -34,6 +34,7 @@ input_dict = list(
   'name' = NA
 )
 
-model = get_model(model_path = "models", container_url, key)
+model = update_model(model_path = "models", container_url, key)
+model = get_existing_model(model_path = "models")
 score = get_score(input_dict, model$model)
 score
