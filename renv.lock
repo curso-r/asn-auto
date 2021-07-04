@@ -9,6 +9,34 @@
     ]
   },
   "Packages": {
+    "AzureAuth": {
+      "Package": "AzureAuth",
+      "Version": "1.3.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "c453f24cd3d5f8be4e2817bbc0a69032"
+    },
+    "AzureGraph": {
+      "Package": "AzureGraph",
+      "Version": "1.3.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "7553b636a4f42445b47965a794adfe4a"
+    },
+    "AzureRMR": {
+      "Package": "AzureRMR",
+      "Version": "2.4.2",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "0982ac67e3ec82a8e38f9e3c7d6ca183"
+    },
+    "AzureStor": {
+      "Package": "AzureStor",
+      "Version": "3.5.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "8728ef8871a03c369fa203ca9dab2f7f"
+    },
     "BH": {
       "Package": "BH",
       "Version": "1.75.0-0",
@@ -343,6 +371,13 @@
       "Repository": "CRAN",
       "Hash": "64778782a89480e9a644f69aad9a2877"
     },
+    "jose": {
+      "Package": "jose",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "89349ef3320871218bf4edb7d8547ddd"
+    },
     "jsonlite": {
       "Package": "jsonlite",
       "Version": "1.7.2",
@@ -419,6 +454,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "eb7b6439bc6d812eed2cddba5edc6be3"
+    },
+    "microbenchmark": {
+      "Package": "microbenchmark",
+      "Version": "1.4-7",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "9ffe05828082333ec03d1669e5ca47b9"
     },
     "mime": {
       "Package": "mime",
