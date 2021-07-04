@@ -22,8 +22,6 @@ scora_um <- function(
   origin,
   force_model_update = FALSE
 ) {
-  browser()
-
   model_path <- "models"
   force_model_update <- as.logical(force_model_update)
   # checa se já tem modelo para utilizar
@@ -65,12 +63,12 @@ train <- function() {
 }
 
 #* @get /env
-config <- function() {
-  as.list(Sys.getenv())
+env <- function(key = NULL) {
+  as.list(Sys.getenv(key))
 }
 
 #* @get /
-config <- function() {
+function() {
   200
 }
 
