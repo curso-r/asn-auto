@@ -5,6 +5,7 @@ RUN apt install libxml2-dev openssl libssl-dev libcurl4-openssl-dev libsodium-de
 
 COPY . .
 
+RUN R -e 'install.packages("renv")'
 RUN R -e 'renv::restore()'
 
 EXPOSE 8080
