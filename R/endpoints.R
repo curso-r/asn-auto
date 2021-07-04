@@ -51,3 +51,9 @@ train <- function() {
 config <- function() {
   as.list(Sys.getenv())
 }
+
+#* @get /
+config <- function() {
+  200
+}
+
