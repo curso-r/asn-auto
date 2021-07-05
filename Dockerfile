@@ -1,4 +1,4 @@
-FROM rocker/ml:latest
+FROM rocker/tidyverse:latest
 
 RUN apt update
 RUN apt install libxml2-dev openssl libssl-dev libcurl4-openssl-dev libsodium-dev -y
