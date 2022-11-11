@@ -28,9 +28,11 @@ scora_um <- function(
   if(length(list.files(model_path)) > 0 & !force_model_update) {
     model = get_existing_model(model_path)
   } else {
-    model = update_model(model_path = model_path,
-                      container_url = 'https://asnrocksstorage.blob.core.windows.net/',
-                      key = Sys.getenv('STORAGE_ACCOUNT_KEY'))
+    model = update_model(
+      model_path = model_path,
+      container_url = 'https://asnrocksstorage.blob.core.windows.net/',
+      key = Sys.getenv('STORAGE_ACCOUNT_KEY')
+    )
   }
 
   input_dict = list(

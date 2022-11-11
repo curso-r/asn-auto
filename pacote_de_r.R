@@ -18,13 +18,14 @@
 # Instruções:
 
 # 1) crie um projeto-pacote com usethis::create_package("asnAuto")
-# 2) inicialize o git, o github e o readme com usethis::
-# 3) Gere o README.md a partir do README.md
-# 4) teste se está dando para enviar arquivo para o github
-# 5) Altere o arquivo DESCRIPTION
+# 2) inicialize o usethis::use_git()
+# 3) crie o repositorio do github com usethis::use_github()
+# 4) crie um readme com usethis::use_readme_md()
+# 4) teste se está dando para enviar arquivo para o github (dando git add -> git commit -> git push).
+# 5) Altere o arquivo DESCRIPTION dando melhores nome e descrição.
 # 6) crie o arquivo train.R e copie/cole as funções nele.
 # 7) crie o arquivo score.R e copie/cole as funções nele.
-# 8) aperte CTRL+SHIFT+D para gerar as documentações
+# 8) aperte CTRL+SHIFT+D para gerar as documentações.
 # 9) aperte CTRL+SHIFT+B para buildar o pacote.
 # 10) escreva no console 'asnAuto::' para ver se a lista de funções
 #     aparece.

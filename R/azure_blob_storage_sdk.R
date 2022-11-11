@@ -11,13 +11,13 @@ blob_con = blob_endpoint(
 
 # criacao/conexao com o blob container ------------------------------------
 list_storage_containers(blob_con)
-
+container_name = "data"
 container_client = tryCatch(
   expr = {
-    create_blob_container(blob_con, name = "data")
+    create_blob_container(blob_con, name = container_name)
   },
   error = function(e) {
-    blob_container(blob_con, name = "data")
+    blob_container(blob_con, name = container_name)
   }
 )
 
